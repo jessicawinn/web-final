@@ -1,0 +1,94 @@
+Customer CRUD API Design
+=======================
+
+1. Create Customer
+------------------
+- Route: POST /api/customer
+- Payload (body):
+  {
+    "name": "John Doe",
+    "dateOfBirth": "1990-01-01",
+    "memberNumber": 1,
+    "interests": "movies, football"
+  }
+- Response:
+  {
+    "_id": "...",
+    "name": "John Doe",
+    "dateOfBirth": "1990-01-01T00:00:00.000Z",
+    "memberNumber": 1,
+    "interests": "movies, football"
+  }
+- File: /app/api/customer/route.js
+- Test: curl -X POST -H "Content-Type: application/json" -d '{"name":"John Doe","dateOfBirth":"1990-01-01","memberNumber":1,"interests":"movies, football"}' http://localhost:3000/api/customer
+
+2. Read All Customers
+---------------------
+- Route: GET /api/customer
+- Payload (body): -
+- Response:
+  [
+    {
+      "_id": "...",
+      "name": "John Doe",
+      "dateOfBirth": "1990-01-01T00:00:00.000Z",
+      "memberNumber": 1,
+      "interests": "movies, football"
+    },
+    {
+      "_id": "...",
+      "name": "Jane Smith",
+      "dateOfBirth": "1985-05-15T00:00:00.000Z",
+      "memberNumber": 2,
+      "interests": "reading, music"
+    }
+  ]
+- File: /app/api/customer/route.js
+- Test: curl http://localhost:3000/api/customer
+
+3. Read Single Customer
+-----------------------
+- Route: GET /api/customer/{id}
+- Payload (body): -
+- Response:
+  {
+    "_id": "...",
+    "name": "John Doe",
+    "dateOfBirth": "1990-01-01T00:00:00.000Z",
+    "memberNumber": 1,
+    "interests": "movies, football"
+  }
+- File: /app/api/customer/[id]/route.js
+- Test: curl http://localhost:3000/api/customer/{id}
+
+4. Update Customer
+------------------
+- Route: PUT /api/customer/{id}
+- Payload (body):
+  {
+    "name": "Jane Doe",
+    "dateOfBirth": "1992-02-02",
+    "memberNumber": 2,
+    "interests": "gym, gaming"
+  }
+- Response:
+  {
+    "_id": "...",
+    "name": "Jane Doe",
+    "dateOfBirth": "1992-02-02T00:00:00.000Z",
+    "memberNumber": 2,
+    "interests": "gym, gaming"
+  }
+- File: /app/api/customer/[id]/route.js
+- Test: curl -X PUT -H "Content-Type: application/json" -d '{"name":"Jane Doe","dateOfBirth":"1992-02-02","memberNumber":2,"interests":"gym, gaming"}' http://localhost:3000/api/customer/{id}
+
+5. Delete Customer
+------------------
+- Route: DELETE /api/customer/{id}
+- Payload (body): -
+- Response:
+  {
+    "message": "Customer deleted"
+  }
+- File: /app/api/customer/[id]/route.js
+- Test: curl -X DELETE http://localhost:3000/api/customer/{id}

@@ -7,9 +7,10 @@ export default function BoxBasic() {
     <main>
       <Box component="section" className="border border-gray-800 m-5 text-center">
         <h1 className="text-3xl text-violet-950">Stock Management v1.0</h1>
-        <ul>
-          <li><a href="/product">Products</a></li>
-          <li><a href="/category">Category</a></li>
+        <ul className="space-y-2 mt-4">
+          <li><a href="/product" className="text-blue-600 hover:text-blue-800 underline">Products</a></li>
+          <li><a href="/category" className="text-blue-600 hover:text-blue-800 underline">Category</a></li>
+          <li><a href="/customer" className="text-blue-600 hover:text-blue-800 underline">Customers</a></li>
         </ul>
         
       </Box>
